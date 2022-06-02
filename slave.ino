@@ -1,33 +1,4 @@
-0// slave
-//
-//
-//#define led 2
-//
-//void setup()
-//{
-//  // put your setup code here, to run once:
-//  Serial.begin(9600);
-//  pinMode(led, OUTPUT);
-//}
-//
-//void loop()
-//{
-//  // put your main code here, to run repeatedly:
-//  if(Serial.available())
-//  {
-//    char val = Serial.read();
-//    if(val == 'A')
-//    {
-//      digitalWrite(led, HIGH);
-//    }
-//    else if(val == 'a')
-//    {
-//      digitalWrite(led, LOW);
-//    }
-//  }
-//}
-
-char t;
+char car;
 
 void setup()
 {
@@ -50,13 +21,13 @@ void loop()
 
   if (Serial.available())
   {
-    t = Serial.read();
+    car = Serial.read();
     //Serial.println(t);
     //Serial.println('k');
   }
   delay(20)
 
-  if (t == 'F') {          //move forward(all motors rotate in forward direction)
+  if (car == 'F') {          //move forward(all motors rotate in forward direction)
     digitalWrite(13, HIGH);
     digitalWrite(11, HIGH);
     delay(2800);
@@ -64,7 +35,7 @@ void loop()
     //Serial.println('f');
   }
 
-  else if (t == 'B') {    //move reverse (all motors rotate in reverse direction)
+  else if (car == 'B') {    //move reverse (all motors rotate in reverse direction)
     digitalWrite(12, HIGH);
     digitalWrite(10, HIGH);
     delay(2800);
@@ -72,19 +43,19 @@ void loop()
        //Serial.println('b');
   }
 
-  else if (t == 'L') {
+  else if (car == 'L') {
     //Serial.println('l');
     digitalWrite(13, HIGH); //turn left (right side motors rotate in forward direction, left side motors doesn't rotate)
     delay(1900);
   }
 
-  else if (t == 'R') {    //turn right (left side motors rotate in forward direction, right side motors doesn't rotate)
+  else if (car == 'R') {    //turn right (left side motors rotate in forward direction, right side motors doesn't rotate)
     digitalWrite(11, HIGH);
     //Serial.println('r');
     delay(1900);
   }
 
-  else if (t == 'S') 
+  else if (car == 'S') 
   {    //STOP (all motors stop)
     digitalWrite(13, LOW);
     digitalWrite(12, LOW);
