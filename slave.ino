@@ -22,41 +22,38 @@ void loop()
   if (Serial.available())
   {
     car = Serial.read();
-    //Serial.println(t);
-    //Serial.println('k');
+  
   }
   delay(20)
 
-  if (car == 'F') {          //move forward(all motors rotate in forward direction)
-    digitalWrite(13, HIGH);
+  if (car == 'F') {        
     digitalWrite(11, HIGH);
     delay(2800);
 
-    //Serial.println('f');
+    
   }
 
-  else if (car == 'B') {    //move reverse (all motors rotate in reverse direction)
+  else if (car == 'B') {   
     digitalWrite(12, HIGH);
     digitalWrite(10, HIGH);
     delay(2800);
 
-       //Serial.println('b');
   }
 
   else if (car == 'L') {
-    //Serial.println('l');
-    digitalWrite(13, HIGH); //turn left (right side motors rotate in forward direction, left side motors doesn't rotate)
+   
+    digitalWrite(13, HIGH); 
     delay(1900);
   }
 
-  else if (car == 'R') {    //turn right (left side motors rotate in forward direction, right side motors doesn't rotate)
+  else if (car == 'R') {   
     digitalWrite(11, HIGH);
-    //Serial.println('r');
+   
     delay(1900);
   }
 
   else if (car == 'S') 
-  {    //STOP (all motors stop)
+  {    
     digitalWrite(13, LOW);
     digitalWrite(12, LOW);
     digitalWrite(11, LOW);
